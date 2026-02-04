@@ -1,0 +1,1344 @@
+<!DOCTYPE html>
+<html lang="gu">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>વંશવર્ધક - આયુર્વેદિક ફર્ટિલિટી સોલ્યુશન</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Hind:wght@300;400;500;600;700&family=Shrikhand&display=swap"
+        rel="stylesheet">
+
+    <style>
+        :root {
+            --primary-orange: #f97316;
+            --secondary-orange: #fb923c;
+            --dark-gray: #1f2937;
+        }
+
+        * {
+            scroll-behavior: smooth;
+        }
+
+        body {
+            font-family: 'Hind', sans-serif;
+            overflow-x: hidden;
+            background-color: #fff7ed;
+        }
+
+        .display-font {
+            font-family: 'Shrikhand', cursive;
+        }
+
+        /* Floating CTA Animation */
+        @keyframes pulse-glow {
+
+            0%,
+            100% {
+                transform: scale(1);
+                box-shadow: 0 0 0 0 rgba(249, 115, 22, 0.7);
+            }
+
+            50% {
+                transform: scale(1.05);
+                box-shadow: 0 0 20px 10px rgba(249, 115, 22, 0);
+            }
+        }
+
+        .floating-cta {
+            animation: pulse-glow 2s infinite;
+        }
+
+        /* Fade-in animations */
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(30px);
+            }
+
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        .animate-fade-in {
+            animation: fadeInUp 0.8s ease-out forwards;
+        }
+
+        /* Staggered animations */
+        .stagger-1 {
+            animation-delay: 0.1s;
+            opacity: 0;
+        }
+
+        .stagger-2 {
+            animation-delay: 0.2s;
+            opacity: 0;
+        }
+
+        .stagger-3 {
+            animation-delay: 0.3s;
+            opacity: 0;
+        }
+
+        .stagger-4 {
+            animation-delay: 0.4s;
+            opacity: 0;
+        }
+
+        .stagger-5 {
+            animation-delay: 0.5s;
+            opacity: 0;
+        }
+
+        .stagger-6 {
+            animation-delay: 0.6s;
+            opacity: 0;
+        }
+
+        /* Card click animation */
+        @keyframes cardClick {
+            0% {
+                transform: scale(1);
+            }
+
+            50% {
+                transform: scale(0.95);
+            }
+
+            100% {
+                transform: scale(1);
+            }
+        }
+
+        @keyframes bounce {
+
+            0%,
+            100% {
+                transform: translateY(0);
+            }
+
+            50% {
+                transform: translateY(-10px);
+            }
+        }
+
+        .card-clickable {
+            cursor: pointer;
+            transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .card-clickable:hover {
+            transform: translateY(-8px) scale(1.02);
+            box-shadow: 0 25px 50px rgba(249, 115, 22, 0.25);
+        }
+
+        .card-clickable:active {
+            animation: cardClick 0.3s ease;
+            transform: scale(0.98);
+        }
+
+        /* Ripple effect on click */
+        @keyframes ripple {
+            0% {
+                transform: scale(0);
+                opacity: 0.6;
+            }
+
+            100% {
+                transform: scale(4);
+                opacity: 0;
+            }
+        }
+
+        .ripple {
+            position: absolute;
+            border-radius: 50%;
+            background: rgba(249, 115, 22, 0.4);
+            width: 30px;
+            height: 30px;
+            animation: ripple 0.6s ease-out;
+            pointer-events: none;
+        }
+
+        /* Product glow */
+        .product-glow {
+            box-shadow: 0 0 60px rgba(249, 115, 22, 0.3);
+            animation: pulse 3s ease-in-out infinite;
+        }
+
+        @keyframes pulse {
+
+            0%,
+            100% {
+                box-shadow: 0 0 40px rgba(249, 115, 22, 0.3);
+            }
+
+            50% {
+                box-shadow: 0 0 80px rgba(249, 115, 22, 0.5);
+            }
+        }
+
+        /* Accordion */
+        .accordion-content {
+            max-height: 0;
+            overflow: hidden;
+            transition: max-height 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+        }
+
+        .accordion-content.active {
+            max-height: 500px;
+        }
+
+        .accordion-btn {
+            transition: background-color 0.3s ease;
+        }
+
+        .accordion-btn:active {
+            animation: cardClick 0.2s ease;
+        }
+
+        /* Image styling */
+        .rounded-image {
+            border-radius: 20px;
+            overflow: hidden;
+        }
+
+        /* Emotional background elements */
+        .emotional-bg {
+            position: relative;
+            overflow: hidden;
+        }
+
+        .emotional-bg::before {
+            content: '';
+            position: absolute;
+            top: -50%;
+            left: -50%;
+            width: 200%;
+            height: 200%;
+            background: radial-gradient(circle, rgba(249, 115, 22, 0.08) 0%, transparent 70%);
+            animation: float 15s ease-in-out infinite;
+        }
+
+        @keyframes float {
+
+            0%,
+            100% {
+                transform: translate(0, 0) rotate(0deg);
+            }
+
+            33% {
+                transform: translate(30px, -30px) rotate(120deg);
+            }
+
+            66% {
+                transform: translate(-20px, 20px) rotate(240deg);
+            }
+        }
+
+        /* Trust badge styling */
+        .trust-badge {
+            background: white;
+            border: 2px solid var(--primary-orange);
+            transition: all 0.3s ease;
+            cursor: pointer;
+        }
+
+        .trust-badge:hover {
+            border-color: var(--secondary-orange);
+            transform: scale(1.08) rotate(2deg);
+            box-shadow: 0 10px 30px rgba(249, 115, 22, 0.2);
+        }
+
+        .trust-badge:active {
+            animation: cardClick 0.2s ease;
+        }
+
+        /* Vector image placeholder */
+        .vector-img {
+            background: linear-gradient(135deg, #fff7ed 0%, #ffedd5 100%);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            padding: 2rem;
+            border-radius: 20px;
+        }
+
+        /* Button click effect */
+        .btn-clickable {
+            transition: all 0.2s ease;
+        }
+
+        .btn-clickable:active {
+            transform: scale(0.95);
+        }
+    </style>
+</head>
+
+<body>
+
+    <!-- Floating CTA Button -->
+    <a href="#order-form"
+        class="floating-cta fixed bottom-6 right-6 z-50 bg-orange-500 text-white px-6 py-4 rounded-full font-bold shadow-2xl hover:bg-orange-600 transition-colors text-center btn-clickable">
+        🛒 અત્યારે બુક કરો
+    </a>
+
+    <!-- Main Container -->
+    <div class="max-w-[450px] mx-auto bg-white shadow-2xl">
+        <img src="./Image/Hero.png" class="w-full h-auto" alt="">
+        <!-- HOOK SECTION - Emotional Problem First -->
+        <section class="emotional-bg relative bg-orange-50">
+            <div class="relative z-10">
+                <div class="bg-white/90 backdrop-blur-sm  p-8 shadow-xl animate-fade-in card-clickable">
+
+
+                    <h1 class="display-font text-3xl text-orange-600 mb-4 leading-tight text-center">
+                        ⚠️ સંતાન ન થવું કોઈ “કિસ્મત” નથી —
+                        મોટાભાગે તે પુરુષ અને મહિલા બંનેમાં
+                        ફર્ટિલિટી ઇમ્બેલેન્સનું સંકેત હોય છે।
+                    </h1>
+
+                    <div class="space-y-4 text-gray-700 text-base leading-relaxed">
+                        <p class="font-semibold text-lg text-center text-orange-600">
+                            💔 દર મહિને આવતી નિરાશા...
+                        </p>
+
+                        <p class="text-gray-800">
+                            દરેક મહિને પ્રિયડ આવે ત્યારે આવતી નિરાશા, દરેક ટેસ્ટ નેગેટિવ આવે ત્યારે તૂટતું દિલ, અને
+                            સમાજના પ્રશ્નો... આ બધું કેટલું દુઃખદાયક છે, તે ફક્ત તમે જ જાણો છો.
+                        </p>
+
+                        <div class="bg-orange-50 border-l-4 border-orange-500 p-4 rounded-r-xl">
+                            <p class="font-medium text-orange-900">
+                                પરિવારનો દબાણ, સંબંધીઓના તાણા, અને ડૉક્ટરના ચક્કર... આ બધું ખૂબ થઈ ગયું છે.
+                            </p>
+                        </div>
+
+                        <p class="text-center font-semibold text-lg text-gray-800 mt-6">
+                            પરંતુ હવે આશા છે! 🌿
+                        </p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Decorative elements -->
+            <div class="absolute top-10 right-10 opacity-10">
+                <svg class="w-32 h-32 text-orange-500" fill="currentColor" viewBox="0 0 20 20">
+                    <path fill-rule="evenodd"
+                        d="M3.172 5.172a4 4 0 015.656 0L10 6.343l1.172-1.171a4 4 0 115.656 5.656L10 17.657l-6.828-6.829a4 4 0 010-5.656z"
+                        clip-rule="evenodd"></path>
+                </svg>
+            </div>
+        </section>
+
+        <!-- PROBLEM AWARENESS - Men's Problems -->
+        <section class="p-4 bg-white">
+            <h2 class="display-font text-2xl text-gray-800 mb-6 text-center">
+                પુરુષોમાં ફર્ટિલિટી સમસ્યાઓ 👨
+            </h2>
+
+
+
+            <div class="space-y-4">
+                <div
+                    class="bg-orange-50  rounded-xl shadow-md flex items-center gap-4 card-clickable animate-fade-in stagger-2 border-l-4 border-orange-500">
+                    <div
+                        class="flex-shrink-0  bg-orange-500 rounded-full flex items-center justify-center text-white text-2xl font-bold">
+                        <img src="./Image/Pro1.png" class="w-full h-32" alt="">
+                    </div>
+                    <div class="p-4 text-center">
+                        <h3 class="font-bold text-gray-800 mb-1">ઓછી સ્પર્મ કાઉન્ટ</h3>
+                        <p class="text-sm text-gray-600">નીચી શુક્રાણુ સંખ્યા ગર્ભધારણમાં મુશ્કેલી</p>
+                    </div>
+                </div>
+
+                <div
+                    class="bg-orange-50 rounded-xl shadow-md flex items-center gap-6 card-clickable animate-fade-in stagger-3 border-l-4 border-orange-500">
+                    <div
+                        class="flex-shrink-0  bg-orange-500 rounded-full flex items-center justify-center text-white text-2xl font-bold">
+                        <img src="./Image/Pro2.png" class="w-full h-32" alt="">
+                    </div>
+                    <div class="p-4 text-center">
+                        <h3 class="font-bold text-gray-800 mb-1">ઓછી મોટિલિટી</h3>
+                        <p class="text-sm text-gray-600">શુક્રાણુની ગતિશીલતામાં ખામી</p>
+                    </div>
+                </div>
+
+                <div
+                    class="bg-orange-50  rounded-xl shadow-md flex items-center gap-4 card-clickable animate-fade-in stagger-4 border-l-4 border-orange-500">
+                    <div
+                        class="flex-shrink-0  bg-orange-500 rounded-full flex items-center justify-center text-white text-2xl font-bold">
+                        <img src="./Image/Pro3.png" class="w-full h-32" alt="">
+                    </div>
+                    <div class="p-4 text-center">
+                        <h3 class="font-bold text-gray-800 mb-1">મોર્ફોલોજી સમસ્યા</h3>
+                        <p class="text-sm text-gray-600">અસામાન્ય શુક્રાણુ રચના</p>
+                    </div>
+                </div>
+
+                <div
+                    class="bg-orange-50  rounded-xl shadow-md flex items-start gap-4 card-clickable animate-fade-in stagger-5 border-l-4 border-orange-500">
+                    <div
+                        class="flex-shrink-0  bg-orange-500 rounded-full flex items-center justify-center text-white text-2xl font-bold">
+                        <img src="./Image/Pro4.png" class="w-full h-32" alt="">
+                    </div>
+                    <div class="p-4 text-center">
+                        <h3 class="font-bold text-gray-800 mb-1">જાતીય નબળાઈ</h3>
+                        <p class="text-sm text-gray-600">ઓછી શક્તિ અને પ્રદર્શન</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- PROBLEM AWARENESS - Women's Problems -->
+        <section class="p-4 bg-orange-50">
+            <h2 class="display-font text-2xl text-gray-800 mb-6 text-center">
+                સ્ત્રીઓમાં ફર્ટિલિટી સમસ્યાઓ 👩
+            </h2>
+
+            <div class="space-y-4">
+                <div
+                    class="bg-white  rounded-xl shadow-md flex items-center justify-end gap-4 card-clickable animate-fade-in stagger-2 border-l-4 border-orange-500">
+                    <div class="p-4 text-center">
+                        <h3 class="font-bold text-gray-800 mb-1">અનિયમિત પિરિયડ્સ</h3>
+                        <p class="text-sm text-gray-600">માસિક ચક્રમાં અનિયમિતતા</p>
+                    </div>
+                    <div
+                        class="flex-shrink-0  bg-orange-500 rounded-full flex items-center justify-center text-white text-2xl font-bold">
+                        <img src="./Image/Pro6.png" class="w-full h-32" alt="">
+                    </div>
+                </div>
+
+                <div
+                    class="bg-white  rounded-xl shadow-md flex items-center justify-end gap-4 card-clickable animate-fade-in stagger-3 border-l-4 border-orange-500">
+
+                    <div class="p-4 text-center">
+                        <h3 class="font-bold text-gray-800 mb-1">PCOS / ઓવ્યુલેશન સમસ્યા</h3>
+                        <p class="text-sm text-gray-600">અંડોત્સર્ગમાં મુશ્કેલી</p>
+                    </div>
+                    <div
+                        class="flex-shrink-0 bg-orange-500 rounded-full flex items-center justify-center text-white text-2xl font-bold">
+                        <img src="./Image/Pro9.png" class="w-full h-32" alt="">
+                    </div>
+                </div>
+
+                <div
+                    class="bg-white justify-end rounded-xl shadow-md flex items-center gap-4 card-clickable animate-fade-in stagger-4 border-l-4 border-orange-500">
+
+                    <div class="p-4 text-center">
+                        <h3 class="font-bold text-gray-800 mb-1">હોર્મોનલ અસંતુલન</h3>
+                        <p class="text-sm text-gray-600">હોર્મોન લેવલમાં વધઘટ</p>
+                    </div>
+                    <div
+                        class="flex-shrink-0  bg-orange-500 rounded-full flex items-center justify-center text-white text-2xl font-bold">
+                        <img src="./Image/Pro8.png" class="w-full h-32" alt="">
+                    </div>
+                </div>
+
+                <div
+                    class="bg-white  rounded-xl shadow-md flex items-center justify-end gap-4 card-clickable animate-fade-in stagger-5 border-l-4 border-orange-500">
+
+                    <div class="p-4 text-center">
+                        <h3 class="font-bold text-gray-800 mb-1">ગર્ભાશય સમસ્યાઓ</h3>
+                        <p class="text-sm text-gray-600">એન્ડોમેટ્રિયોસિસ અને અન્ય સમસ્યાઓ</p>
+                    </div>
+                    <div
+                        class="flex-shrink-0 bg-orange-500 rounded-full flex items-center justify-center text-white text-2xl font-bold">
+                        <img src="./Image/Pro10.png" class="w-full h-32" alt="">
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- PRODUCT INTRODUCTION -->
+        <section class="p-4 bg-white">
+            <div class="text-center mb-8 animate-fade-in">
+                <h2 class="display-font text-3xl text-orange-600 mb-3">
+                    વંશવર્ધક આયુર્વેદિક કિટ 🌿
+                </h2>
+                <p class="text-gray-700 font-medium text-lg">
+                    પુરુષ અને સ્ત્રી બંને માટે અલગ ફોર્મ્યુલેશન
+                </p>
+            </div>
+
+            <div
+                class="mb-8 product-glow rounded-3xl overflow-hidden shadow-2xl animate-fade-in stagger-2 vector-img bg-orange-50">
+                <img src="./Image/Intro.png" alt="વંશવર્ધક કિટ"
+                    class="w-full max-w-sm mx-auto rounded-3xl shadow-xl h-auto object-contain">
+            </div>
+
+            <div class="bg-orange-50 rounded-3xl p-6 shadow-xl animate-fade-in stagger-3 card-clickable">
+                <h3 class="font-bold text-xl text-gray-800 mb-4 text-center">
+                    ✨ કિટમાં શું મળે છે?
+                </h3>
+
+                <div class="space-y-3">
+                    <div class="flex items-center gap-3 p-3 bg-white rounded-xl shadow-sm">
+                        <span class="text-3xl">👨</span>
+                        <div>
+                            <p class="font-semibold text-gray-800">પુરુષો માટે ખાસ ફોર્મ્યુલા</p>
+                            <p class="text-sm text-gray-600">સ્પર્મ કાઉન્ટ, મોટિલિટી અને શક્તિ વધારે</p>
+                        </div>
+                    </div>
+
+                    <div class="flex items-center gap-3 p-3 bg-white rounded-xl shadow-sm">
+                        <span class="text-3xl">👩</span>
+                        <div>
+                            <p class="font-semibold text-gray-800">સ્ત્રીઓ માટે ખાસ ફોર્મ્યુલા</p>
+                            <p class="text-sm text-gray-600">હોર્મોન બેલેન્સ, ઓવ્યુલેશન અને ગર્ભાશય સ્વાસ્થ્ય</p>
+                        </div>
+                    </div>
+
+                    <div class="flex items-center gap-3 p-3 bg-white rounded-xl shadow-sm">
+                        <span class="text-3xl">🌱</span>
+                        <div>
+                            <p class="font-semibold text-gray-800">મૂળ કારણનો ઉપચાર</p>
+                            <p class="text-sm text-gray-600">શરીરને અંદરથી મજબૂત બનાવે</p>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="mt-6 text-center">
+                    <p class="text-2xl font-bold text-orange-600 mb-2">સંપૂર્ણ 60 દિવસનો કોર્સ</p>
+                    <p class="text-sm text-gray-600">100% શુદ્ધ આયુર્વેદિક • કોઈ સાઇડ ઇફેક્ટ નહીં</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- HOW IT WORKS - For Men -->
+        <section class="p-4 bg-orange-50">
+            <div class="flex items-center justify-center gap-3 mb-6">
+                <span class="text-3xl">👨</span>
+                <h2 class="display-font text-2xl text-gray-800">
+                    પુરુષો માટે કેવી રીતે કામ કરે?
+                </h2>
+            </div>
+
+            <div class="mb-6 vector-img bg-white animate-fade-in stagger-1">
+                <img src="./Image/menProduct.png" alt="પુરુષો માટે" class="w-full max-w-xs h-auto object-contain">
+            </div>
+
+            <div class="space-y-4">
+                <div
+                    class="bg-white  rounded-2xl shadow-lg border-l-4 border-orange-500 card-clickable animate-fade-in stagger-2">
+                    <div class="flex items-center gap-4">
+                        <div
+                            class="flex-shrink-0  bg-orange-500 text-white rounded-full flex items-center justify-center font-bold">
+                            <img src="./Image/improve1.png" class="w-full h-32" alt="">
+                        </div>
+                        <div class="p-4 text-center">
+                            <h3 class="font-bold text-gray-800 mb-2">સ્પર્મ પ્રોડક્શન વધારે 📈</h3>
+                            <p class="text-sm text-gray-600">શુક્રાણુની સંખ્યા અને ગુણવત્તામાં વધારો</p>
+                        </div>
+                    </div>
+                </div>
+
+                <div
+                    class="bg-white  rounded-2xl shadow-lg border-l-4 border-orange-500 card-clickable animate-fade-in stagger-3">
+                    <div class="flex items-center gap-4">
+                        <div
+                            class="flex-shrink-0  bg-orange-500 text-white rounded-full flex items-center justify-center font-bold">
+                            <img src="./Image/improve2.png" class="w-full h-32" alt="">
+                        </div>
+                        <div class="p-4 text-center">
+                            <h3 class="font-bold text-gray-800 mb-2">મોટિલિટી સુધારે 🏃</h3>
+                            <p class="text-sm text-gray-600">શુક્રાણુની ગતિ અને જીવંતતા વધે</p>
+                        </div>
+                    </div>
+                </div>
+
+                <div
+                    class="bg-white rounded-2xl shadow-lg border-l-4 border-orange-500 card-clickable animate-fade-in stagger-4">
+                    <div class="flex items-center gap-4">
+                        <div
+                            class="flex-shrink-0  bg-orange-500 text-white rounded-full flex items-center justify-center font-bold">
+                            <img src="./Image/improve3.png" class="w-full h-32" alt="">
+                        </div>
+                        <div class="p-4 text-center">
+                            <h3 class="font-bold text-gray-800 mb-2">જાતીય શક્તિ વધારે 💪</h3>
+                            <p class="text-sm text-gray-600">સ્ટેમિના અને એનર્જી લેવલ વધે</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- HOW IT WORKS - For Women -->
+        <section class="p-4 bg-white">
+            <div class="flex items-center justify-center gap-3 mb-6">
+                <span class="text-3xl">👩</span>
+                <h2 class="display-font text-2xl text-gray-800">
+                    સ્ત્રીઓ માટે કેવી રીતે કામ કરે?
+                </h2>
+            </div>
+
+            <div class="mb-6 vector-img animate-fade-in stagger-1 bg-orange-50">
+                <img src="./Image/womenProduct.png" alt="સ્ત્રીઓ માટે" class="w-full max-w-xs h-auto object-contain">
+            </div>
+
+            <div class="space-y-4">
+                <div
+                    class="bg-orange-50  rounded-2xl shadow-lg border-l-4 border-orange-500 card-clickable animate-fade-in stagger-2">
+                    <div class="flex items-center gap-4">
+                        <div
+                            class="flex-shrink-0  bg-orange-500 text-white rounded-full flex items-center justify-center font-bold">
+                            <img src="./Image/improve4.png" class="w-full h-32" alt="">
+                        </div>
+                        <div class="p-4 text-center">
+                            <h3 class="font-bold text-gray-800 mb-2">માસિક ચક્ર નિયમિત 📅</h3>
+                            <p class="text-sm text-gray-600">પિરિયડ્સ નિયમિત અને પેઇનલેસ બને</p>
+                        </div>
+                    </div>
+                </div>
+
+                <div
+                    class="bg-orange-50  rounded-2xl shadow-lg border-l-4 border-orange-500 card-clickable animate-fade-in stagger-3">
+                    <div class="flex items-center gap-4">
+                        <div
+                            class="flex-shrink-0 bg-orange-500 text-white rounded-full flex items-center justify-center font-bold">
+                            <img src="./Image/improve6.png" class="w-full h-32" alt="">
+                        </div>
+                        <div>
+                            <h3 class="font-bold text-gray-800 mb-2">હોર્મોન બેલેન્સ 🔄</h3>
+                            <p class="text-sm text-gray-600">એસ્ટ્રોજન અને પ્રોજેસ્ટેરોન સંતુલિત</p>
+                        </div>
+                    </div>
+                </div>
+
+                <div
+                    class="bg-orange-50  rounded-2xl shadow-lg border-l-4 border-orange-500 card-clickable animate-fade-in stagger-4">
+                    <div class="flex items-center gap-4">
+                        <div
+                            class="flex-shrink-0 bg-orange-500 text-white rounded-full flex items-center justify-center font-bold">
+                            <img src="./Image/improve5.png" class="w-full h-32" alt="">
+                        </div>
+                        <div class="p-4 text-center">
+                            <h3 class="font-bold text-gray-800 mb-2">ઓવ્યુલેશન સુધારે 🥚</h3>
+                            <p class="text-sm text-gray-600">સ્વસ્થ અંડાણુ ઉત્પત્તિ અને પરિપક્વતા</p>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+        </section>
+
+        <!-- WHY DOCTORS RECOMMEND -->
+        <section class="p-4 bg-orange-50">
+            <h2 class="display-font text-2xl text-gray-800 mb-8 text-center">
+                ડૉક્ટરો શા માટે ભલામણ કરે છે? 👨‍⚕️
+            </h2>
+
+            <img src="./Image/Doctor.png" class="w-full h-auto shadow-xl mb-8 rounded-xl" alt="">
+
+            <div class="space-y-4">
+                <div class="bg-white p-6 rounded-2xl shadow-lg border-l-4 border-orange-500 card-clickable">
+                    <div class="flex items-start gap-4">
+                        <div class="text-4xl">🎯</div>
+                        <div>
+                            <h3 class="font-bold text-lg text-gray-800 mb-2">મૂળ કારણનો ઉપચાર</h3>
+                            <p class="text-sm text-gray-600">
+                                ફક્ત લક્ષણો નહીં, પરંતુ સમસ્યાના મૂળ કારણને દૂર કરે છે
+                            </p>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="bg-white p-6 rounded-2xl shadow-lg border-l-4 border-orange-500 card-clickable">
+                    <div class="flex items-start gap-4">
+                        <div class="text-4xl">🔄</div>
+                        <div>
+                            <h3 class="font-bold text-lg text-gray-800 mb-2">હોર્મોનલ બેલેન્સ</h3>
+                            <p class="text-sm text-gray-600">
+                                શરીરના હોર્મોન્સને કુદરતી રીતે સંતુલિત કરે છે
+                            </p>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="bg-white p-6 rounded-2xl shadow-lg border-l-4 border-orange-500 card-clickable">
+                    <div class="flex items-start gap-4">
+                        <div class="text-4xl">🛡️</div>
+                        <div>
+                            <h3 class="font-bold text-lg text-gray-800 mb-2">સુરક્ષિત અને અસરકારક</h3>
+                            <p class="text-sm text-gray-600">
+                                કોઈ સાઇડ ઇફેક્ટ નહીં, લાંબા ગાળા માટે સલામત
+                            </p>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="bg-white p-6 rounded-2xl shadow-lg border-l-4 border-orange-500 card-clickable">
+                    <div class="flex items-start gap-4">
+                        <div class="text-4xl">💪</div>
+                        <div>
+                            <h3 class="font-bold text-lg text-gray-800 mb-2">સંપૂર્ણ સ્વાસ્થ્ય</h3>
+                            <p class="text-sm text-gray-600">
+                                માત્ર ફર્ટિલિટી નહીં, સર્વાંગી સ્વાસ્થ્ય સુધારે
+                            </p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="mt-8 bg-orange-100 border-2 border-orange-400 rounded-xl p-6 text-center card-clickable">
+                <p class="font-bold text-lg text-orange-900 mb-2">
+                    ⭐ આયુર્વેદિક ડૉક્ટરો દ્વારા માન્ય
+                </p>
+                <p class="text-sm text-orange-800">
+                    હજારો વર્ષની પરંપરા અને આધુનિક સંશોધન
+                </p>
+            </div>
+        </section>
+
+        <!-- IVF vs AYURVEDA COMPARISON -->
+        <section class="p-4 bg-orange-50">
+            <h2 class="display-font text-2xl text-gray-800 mb-8 text-center">
+                IVF vs આયુર્વેદ: શું પસંદ કરવું? 🤔
+            </h2>
+
+            <div class="space-y-4">
+                <!-- IVF Card -->
+                <div class="bg-gray-300 p-6 rounded-2xl shadow-lg border-2 border-gray-400 card-clickable">
+                    <h3 class="font-bold text-xl text-gray-800 mb-4 flex items-center gap-2">
+                        🏥 IVF ટ્રીટમેન્ટ
+                    </h3>
+                    <div class="space-y-2 text-sm text-gray-700">
+                        <p class="flex items-start gap-2">
+                            <span class="text-red-500 font-bold">❌</span>
+                            <span>ખૂબ ખર્ચાળ (5-10 લાખ રૂપિયા)</span>
+                        </p>
+                        <p class="flex items-start gap-2">
+                            <span class="text-red-500 font-bold">❌</span>
+                            <span>તકલીફદાયક પ્રક્રિયા</span>
+                        </p>
+                        <p class="flex items-start gap-2">
+                            <span class="text-red-500 font-bold">❌</span>
+                            <span>સફળતાની ગેરંટી નહીં</span>
+                        </p>
+                        <p class="flex items-start gap-2">
+                            <span class="text-red-500 font-bold">❌</span>
+                            <span>શરીર પર ભારે પડે</span>
+                        </p>
+                        <p class="flex items-start gap-2">
+                            <span class="text-red-500 font-bold">❌</span>
+                            <span>હોર્મોન ઇન્જેક્શન અને દવાઓ</span>
+                        </p>
+                    </div>
+                </div>
+
+                <!-- Ayurveda Card -->
+                <div class="bg-white p-6 rounded-2xl shadow-lg border-2 border-orange-500 card-clickable">
+                    <h3 class="font-bold text-xl text-orange-600 mb-4 flex items-center gap-2">
+                        🌿 આયુર્વેદિક ઉપચાર
+                    </h3>
+                    <div class="space-y-2 text-sm text-gray-700">
+                        <p class="flex items-start gap-2">
+                            <span class="text-orange-600 font-bold">✅</span>
+                            <span>ખૂબ જ સસ્તું અને પરવડે તેવું</span>
+                        </p>
+                        <p class="flex items-start gap-2">
+                            <span class="text-orange-600 font-bold">✅</span>
+                            <span>કોઈ તકલીફ નહીં, સરળ</span>
+                        </p>
+                        <p class="flex items-start gap-2">
+                            <span class="text-orange-600 font-bold">✅</span>
+                            <span>મૂળ કારણનો ઉપચાર</span>
+                        </p>
+                        <p class="flex items-start gap-2">
+                            <span class="text-orange-600 font-bold">✅</span>
+                            <span>શરીરને મજબૂત બનાવે</span>
+                        </p>
+                        <p class="flex items-start gap-2">
+                            <span class="text-orange-600 font-bold">✅</span>
+                            <span>100% કુદરતી, કોઈ સાઇડ ઇફેક્ટ નહીં</span>
+                        </p>
+                    </div>
+                </div>
+            </div>
+
+            <div class="mt-6 text-center card-clickable">
+                <p class="bg-orange-100 border-2 border-orange-400 rounded-xl p-4 font-semibold text-gray-800">
+                    💡 IVF પહેલાં આયુર્વેદ અજમાવો! હજારો દંપતિઓએ કુદરતી રીતે સંતાન સુખ મેળવ્યું છે.
+                </p>
+            </div>
+        </section>
+
+        <!-- KEY AYURVEDIC INGREDIENTS -->
+        <section class="p-4 bg-white">
+            <h2 class="display-font text-2xl text-orange-600 mb-8 text-center">
+                શક્તિશાળી આયુર્વેદિક ઘટકો 🌿
+            </h2>
+
+            <div class="grid gap-4">
+                <div class="bg-orange-50 rounded-2xl shadow-lg card-clickable border-r-4 border-orange-500">
+                    <div class="flex items-start gap-4">
+                        <div class="flex-1 p-4 text-center">
+                            <h3 class="font-bold text-lg text-gray-800 mb-1">અશ્વગંધા</h3>
+                            <p class="text-sm text-gray-600">શક્તિ વધારે, તણાવ ઘટાડે, સ્પર્મ કાઉન્ટ વધારે</p>
+                        </div>
+                        <div
+                            class="flex-shrink-0  bg-orange-500 rounded-xl flex items-center justify-center text-white text-3xl font-bold">
+                            <img src="./Image/Ind2.png" class="w-full h-32" alt="">
+                        </div>
+                    </div>
+                </div>
+
+                <div class="bg-orange-50 rounded-2xl shadow-lg card-clickable border-l-4 border-orange-500">
+                    <div class="flex items-center gap-4">
+                        <div
+                            class="flex-shrink-0  bg-orange-500 rounded-xl flex items-center justify-center text-white text-3xl font-bold">
+                            <img src="./Image/Ind3.png" class="w-full h-32" alt="">
+
+                        </div>
+                        <div class="flex-1 p-4 text-center">
+                            <h3 class="font-bold text-lg text-gray-800 mb-1">શતાવરી</h3>
+                            <p class="text-sm text-gray-600">સ્ત્રીઓ માટે શ્રેષ્ઠ, હોર્મોન બેલેન્સ, ગર્ભાશય મજબૂત</p>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="bg-orange-50 rounded-2xl shadow-lg card-clickable border-l-4 border-orange-500">
+                    <div class="flex items-center gap-4">
+
+                        <div class="flex-1 p-4 text-center">
+                            <h3 class="font-bold text-lg text-gray-800 mb-1">કોંચ બીજ</h3>
+                            <p class="text-sm text-gray-600">જાતીય શક્તિ અને વીર્ય ગુણવત્તા વધારે</p>
+                        </div>
+                        <div
+                            class="flex-shrink-0 bg-orange-500 rounded-xl flex items-center justify-center text-white text-3xl font-bold">
+                            <img src="./Image/Ind4.png" class="w-full h-32" alt="">
+
+                        </div>
+                    </div>
+                </div>
+
+                <div class="bg-orange-50  rounded-2xl shadow-lg card-clickable border-l-4 border-orange-500">
+                    <div class="flex items-center gap-4">
+                        <div
+                            class="flex-shrink-0 bg-orange-500 rounded-xl flex items-center justify-center text-white text-3xl font-bold">
+                            <img src="./Image/Ind5.png" class="w-full h-32" alt="">
+                        </div>
+                        <div class="flex-1 p-4 text-center">
+                            <h3 class="font-bold text-lg text-gray-800 mb-1">પાદાંગુષ્ઠ</h3>
+                            <p class="text-sm text-gray-600">બ્લડ સર્ક્યુલેશન સુધારે, મૂડ બૂસ્ટર</p>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="bg-orange-50 rounded-2xl shadow-lg card-clickable border-l-4 border-orange-500">
+                    <div class="flex items-start gap-4">
+
+
+                        <div class="flex-1 p-4 text-center">
+                            <h3 class="font-bold text-lg text-gray-800 mb-1">પુત્રજીવાકા બીજ</h3>
+                            <p class="text-sm text-gray-600">એનર્જી, સ્ટેમિના અને શુક્રાણુ ગુણવત્તા</p>
+                        </div>
+                        <div
+                            class="flex-shrink-0 bg-orange-500 rounded-xl flex items-center justify-center text-white text-3xl font-bold">
+                            <img src="./Image/Ind1.png" class="w-full h-32" alt="">
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="mt-6 bg-orange-50 border-2 border-orange-300 rounded-xl p-5 text-center card-clickable">
+                <p class="font-semibold text-orange-900">
+                    🌿 + 15 અન્ય શક્તિશાળી આયુર્વેદિક જડીબુટ્ટીઓ
+                </p>
+                <p class="text-sm text-orange-700 mt-2">
+                    પ્રાચીન આયુર્વેદ શાસ્ત્રના આધારે બનાવેલ
+                </p>
+            </div>
+        </section>
+
+        <!-- HOW TO USE -->
+        <section class="p-4 bg-orange-50">
+            <h2 class="display-font text-2xl text-gray-800 mb-8 text-center">
+                કેવી રીતે ઉપયોગ કરવો? 📋
+            </h2>
+
+            <div class="space-y-4">
+                <div class="bg-white p-6 rounded-2xl shadow-lg card-clickable border-l-4 border-orange-500">
+                    <div class="flex items-start gap-4">
+                        <div
+                            class="flex-shrink-0 w-12 h-12 bg-orange-500 text-white rounded-full flex items-center justify-center font-bold text-xl">
+                            1
+                        </div>
+                        <div class="flex-1">
+                            <h3 class="font-bold text-lg text-gray-800 mb-2">સવારે ખાલી પેટે 📅</h3>
+                            <p class="text-sm text-gray-600">
+                                પુરુષો: 1 ગોળી + સ્ત્રીઓ: 1 ગોળી (ગરમ પાણી સાથે)
+                            </p>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="bg-white p-6 rounded-2xl shadow-lg card-clickable border-l-4 border-orange-500">
+                    <div class="flex items-start gap-4">
+                        <div
+                            class="flex-shrink-0 w-12 h-12 bg-orange-500 text-white rounded-full flex items-center justify-center font-bold text-xl">
+                            2
+                        </div>
+                        <div class="flex-1">
+                            <h3 class="font-bold text-lg text-gray-800 mb-2">સાંજે જમ્યા પછી 🌙</h3>
+                            <p class="text-sm text-gray-600">
+                                પુરુષો: 1 ગોળી + સ્ત્રીઓ: 1 ગોળી (ગરમ દૂધ સાથે)
+                            </p>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="bg-white p-6 rounded-2xl shadow-lg card-clickable border-l-4 border-orange-500">
+                    <div class="flex items-start gap-4">
+                        <div
+                            class="flex-shrink-0 w-12 h-12 bg-orange-500 text-white rounded-full flex items-center justify-center font-bold text-xl">
+                            3
+                        </div>
+                        <div class="flex-1">
+                            <h3 class="font-bold text-lg text-gray-800 mb-2">સંપૂર્ણ 60 દિવસ 📆</h3>
+                            <p class="text-sm text-gray-600">
+                                નિયમિતતા ખૂબ જરૂરી છે. એક પણ દિવસ ચૂકવું નહીં
+                            </p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="mt-6 bg-orange-100 border-2 border-orange-400 rounded-xl p-5 card-clickable">
+                <p class="font-bold text-orange-900 mb-2">⚠️ મહત્વપૂર્ણ સૂચનાઓ:</p>
+                <ul class="text-sm text-orange-800 space-y-1 list-disc list-inside">
+                    <li>સ્વસ્થ આહાર અને નિયમિત કસરત</li>
+                    <li>ધૂમ્રપાન અને દારૂ ટાળો</li>
+                    <li>પૂરતી ઊંઘ લો (7-8 કલાક)</li>
+                    <li>તણાવ ઓછો રાખો, યોગ-મેડિટેશન કરો</li>
+                </ul>
+            </div>
+        </section>
+
+        <!-- CERTIFIED & TRUSTED -->
+        <section class="p-4 bg-white">
+            <h2 class="display-font text-2xl text-orange-600 mb-8 text-center">
+                પ્રમાણિત અને વિશ્વસનીય 🛡️
+            </h2>
+
+            <div class="grid grid-cols-2 gap-4">
+                <div class="trust-badge p-4 rounded-xl text-center shadow-lg">
+                    <div class="text-4xl mb-2">
+                        <img src="./Image/Trust2.avif" alt="">
+                    </div>
+                    <p class="font-bold text-sm text-gray-800">GMP Certified</p>
+                    <p class="text-xs text-gray-600">Good Manufacturing</p>
+                </div>
+
+                <div class="trust-badge p-4 rounded-xl text-center shadow-lg">
+                    <div class="text-4xl mb-2">
+                        <div class="text-4xl mb-2">
+                            <img src="./Image/Trust3.avif" alt="">
+                        </div>
+                    </div>
+                    <p class="font-bold text-sm text-gray-800">ISO Certified</p>
+                    <p class="text-xs text-gray-600">International Standards</p>
+                </div>
+
+                <div class="trust-badge p-4 rounded-xl text-center shadow-lg">
+                    <div class="text-4xl mb-2">
+                        <div class="text-4xl mb-2">
+                            <img src="./Image/Trust4.avif" alt="">
+                        </div>
+                    </div>
+                    <p class="font-bold text-sm text-gray-800">FSSAI Approved</p>
+                    <p class="text-xs text-gray-600">Food Safety Standards</p>
+                </div>
+
+                <div class="trust-badge p-4 rounded-xl text-center shadow-lg">
+                    <div class="text-4xl mb-2">
+                        <div class="text-4xl mb-2">
+                            <img src="./Image/Trust1.avif" alt="">
+                        </div>
+                    </div>
+                    <p class="font-bold text-sm text-gray-800">100% Ayurvedic</p>
+                    <p class="text-xs text-gray-600">Pure Natural Herbs</p>
+                </div>
+            </div>
+
+            <div class="mt-8 bg-orange-100 border-2 border-orange-400 rounded-xl p-6 text-center card-clickable">
+                <p class="font-bold text-lg text-orange-900 mb-2">
+                    🔒 સંપૂર્ણ સુરક્ષિત અને ગુણવત્તા ચકાસાયેલ
+                </p>
+                <p class="text-sm text-orange-800">
+                    પ્રયોગશાળામાં પરીક્ષણ કરેલ • ભારત સરકાર દ્વારા માન્ય
+                </p>
+            </div>
+        </section>
+
+        <!-- FINAL CTA -->
+        <section class="p-4 bg-gradient-to-br from-orange-500 to-orange-600 text-white">
+            <div class="text-center">
+                <h2 class="display-font text-3xl mb-4 leading-tight">
+                    તમારા સપનાને સાકાર કરો! 👶
+                </h2>
+
+                <p class="text-xl mb-6 font-medium">
+                    આજે જ શરૂઆત કરો, કાલ માટે રાહ જોશો નહીં!
+                </p>
+
+                <div class="bg-white/20 backdrop-blur rounded-2xl p-6 mb-6 card-clickable">
+                    <p class="text-lg mb-4">
+                        🎁 મર્યાદિત સમય માટે ખાસ ઑફર
+                    </p>
+                </div>
+
+                <a href="#order-form"
+                    class="block w-full bg-white hover:bg-gray-100 text-orange-600 font-bold text-xl py-5 px-8 rounded-full shadow-2xl transition-all btn-clickable">
+                    🛒 અત્યારે જ ઑર્ડર કરો
+                </a>
+
+                <p class="mt-4 text-sm opacity-90">
+                    🚚 મફત ડિલિવરી • 💳 પેમેન્ટ ઑન ડિલિવરી • 🔒 100% સુરક્ષિત
+                </p>
+            </div>
+        </section>
+
+        <!-- ORDER FORM -->
+        <section id="order-form" class="p-4 bg-orange-50">
+            <div class="bg-white rounded-3xl shadow-2xl p-8 max-w-md mx-auto">
+                <h2 class="display-font text-2xl text-orange-600 mb-6 text-center">
+                    તમારો ઑર્ડર બુક કરો 📋
+                </h2>
+
+                <form class="space-y-5">
+                    <div>
+                        <label class="block text-gray-700 font-semibold mb-2">
+                            તમારું નામ *
+                        </label>
+                        <input type="text" required placeholder="પૂરું નામ લખો"
+                            class="w-full px-4 py-3 border-2 border-gray-300 rounded-xl focus:border-orange-500 focus:outline-none transition-colors">
+                    </div>
+
+                    <div>
+                        <label class="block text-gray-700 font-semibold mb-2">
+                            મોબાઇલ નંબર *
+                        </label>
+                        <input type="tel" required pattern="[0-9]{10}" placeholder="10 અંકનો નંબર"
+                            class="w-full px-4 py-3 border-2 border-gray-300 rounded-xl focus:border-orange-500 focus:outline-none transition-colors">
+                    </div>
+
+                    <button type="submit"
+                        class="w-full bg-orange-500 hover:bg-orange-600 text-white font-bold text-lg py-4 rounded-xl shadow-lg transition-colors btn-clickable">
+                        ✅ હા, હું ઑર્ડર કરવા માંગુ છું
+                    </button>
+                </form>
+
+                <p class="text-xs text-gray-500 text-center mt-4">
+                    🔒 તમારી માહિતી સંપૂર્ણ સુરક્ષિત છે. અમે તમારી ગોપનીયતાનું સન્માન કરીએ છીએ.
+                </p>
+
+                <div class="mt-6 flex items-center justify-center gap-4 text-sm text-gray-600">
+                    <div class="flex items-center gap-2">
+                        <span class="text-orange-600">✓</span>
+                        <span>મફત ડિલિવરી</span>
+                    </div>
+                    <div class="flex items-center gap-2">
+                        <span class="text-orange-600">✓</span>
+                        <span>COD ઉપલબ્ધ</span>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- REAL CUSTOMER RESULTS -->
+        <section class="p-4 bg-white">
+            <h2 class="display-font text-2xl text-orange-600 mb-8 text-center">
+                વાસ્તવિક પરિણામો ⭐
+            </h2>
+
+            <div class="space-y-4">
+                <div class="bg-orange-50 p-6 rounded-2xl shadow-lg card-clickable border-2 border-orange-200">
+                    <div class="flex items-start gap-4 mb-4">
+                        <div
+                            class="flex-shrink-0 w-14 h-14 bg-orange-500 rounded-full flex items-center justify-center text-white text-2xl font-bold">
+                            <img src="./Image/Client3.avif" class="rounded-3xl" alt="">
+                        </div>
+                        <div class="flex-1">
+                            <h3 class="font-bold text-gray-800">પ્રિયાંકા રાજપૂત</h3>
+                            <p class="text-sm text-gray-600">અમદાવાદ • 29 વર્ષ</p>
+                        </div>
+                        <div class="text-orange-500 text-lg">
+                            ⭐⭐⭐⭐⭐
+                        </div>
+                    </div>
+                    <p class="text-gray-700 leading-relaxed">
+                        "5 વર્ષથી ગર્ભધારણ નહોતું થઈ રહ્યું. PCOS ની સમસ્યા હતી. વંશવર્ધક કિટ લીધા પછી માત્ર 3 મહિનામાં
+                        સફળતા મળી. હવે અમે માતા-પિતા બનવાના છીએ! 🙏"
+                    </p>
+                </div>
+
+                <div class="bg-orange-50 p-6 rounded-2xl shadow-lg card-clickable border-2 border-orange-200">
+                    <div class="flex items-start gap-4 mb-4">
+                        <div
+                            class="flex-shrink-0 w-14 h-14 bg-orange-500 rounded-full flex items-center justify-center text-white text-2xl font-bold">
+                            <img src="./Image/Client1.avif" class="rounded-3xl" alt="">
+                        </div>
+                        <div class="flex-1">
+                            <h3 class="font-bold text-gray-800">રાજેશ શાહ</h3>
+                            <p class="text-sm text-gray-600">સુરત • 32 વર્ષ</p>
+                        </div>
+                        <div class="text-orange-500 text-lg">
+                            ⭐⭐⭐⭐⭐
+                        </div>
+                    </div>
+                    <p class="text-gray-700 leading-relaxed">
+                        "મારી સ્પર્મ કાઉન્ટ ખૂબ ઓછી હતી (8 મિલિયન). 60 દિવસ વંશવર્ધક લીધા પછી 42 મિલિયન થઈ! ડૉક્ટર પણ
+                        આશ્ચર્ય પામ્યા. ખૂબ ખૂબ આભાર! 🙏"
+                    </p>
+                </div>
+
+                <div class="bg-orange-50 p-6 rounded-2xl shadow-lg card-clickable border-2 border-orange-200">
+                    <div class="flex items-start gap-4 mb-4">
+                        <div
+                            class="flex-shrink-0 w-14 h-14 bg-orange-500 rounded-full flex items-center justify-center text-white text-2xl font-bold">
+                            <img src="./Image/customer2.avif" class="rounded-3xl" alt="">
+                        </div>
+                        <div class="flex-1">
+                            <h3 class="font-bold text-gray-800">મીના પટેલ</h3>
+                            <p class="text-sm text-gray-600">રાજકોટ • 27 વર્ષ</p>
+                        </div>
+                        <div class="text-orange-500 text-lg">
+                            ⭐⭐⭐⭐⭐
+                        </div>
+                    </div>
+                    <p class="text-gray-700 leading-relaxed">
+                        "અનિયમિત પિરિયડ્સ અને હોર્મોન ઇમ્બેલેન્સની સમસ્યા હતી. વંશવર્ધક લેવાથી પિરિયડ્સ નિયમિત થયા અને 4
+                        મહિનામાં ગર્ભવતી બની! ખરેખર કામ કરે છે! 💕"
+                    </p>
+                </div>
+            </div>
+
+            <div class="mt-8 bg-orange-100 border-2 border-orange-300 rounded-xl p-6 text-center card-clickable">
+                <p class="font-bold text-xl text-orange-900 mb-2">
+                    ✨ 80,000+ ખુશ દંપતિઓ
+                </p>
+                <p class="text-orange-700">
+                    જેમણે કુદરતી રીતે સંતાન સુખ મેળવ્યું
+                </p>
+            </div>
+        </section>
+
+        <!-- FAQ SECTION -->
+        <section class="p-4 bg-white">
+            <h2 class="display-font text-2xl text-gray-800 mb-8 text-center">
+                વારંવાર પૂછાતા પ્રશ્નો ❓
+            </h2>
+
+            <div class="space-y-3">
+                <div class="bg-orange-50 rounded-xl shadow-md overflow-hidden border border-orange-200">
+                    <button
+                        class="accordion-btn w-full px-6 py-4 text-left font-semibold text-gray-800 hover:bg-orange-100 transition-colors flex items-center justify-between">
+                        <span>શું આ ખરેખર કામ કરે છે?</span>
+                        <span class="text-2xl text-orange-500">+</span>
+                    </button>
+                    <div class="accordion-content px-6 pb-4">
+                        <p class="text-gray-600">
+                            હા, હજારો દંપતિઓએ વંશવર્ધકથી સફળતા મેળવી છે. આયુર્વેદિક ઘટકો મૂળ કારણને દૂર કરે છે અને
+                            શરીરને કુદરતી રીતે મજબૂત બનાવે છે.
+                        </p>
+                    </div>
+                </div>
+
+                <div class="bg-orange-50 rounded-xl shadow-md overflow-hidden border border-orange-200">
+                    <button
+                        class="accordion-btn w-full px-6 py-4 text-left font-semibold text-gray-800 hover:bg-orange-100 transition-colors flex items-center justify-between">
+                        <span>કેટલા સમયમાં પરિણામ મળે?</span>
+                        <span class="text-2xl text-orange-500">+</span>
+                    </button>
+                    <div class="accordion-content px-6 pb-4">
+                        <p class="text-gray-600">
+                            મોટાભાગના લોકોને 60-90 દિવસમાં સકારાત્મક પરિણામ દેખાય છે. પરંતુ દરેક શરીર અલગ છે, તેથી ધીરજ
+                            રાખો અને નિયમિત લો.
+                        </p>
+                    </div>
+                </div>
+
+                <div class="bg-orange-50 rounded-xl shadow-md overflow-hidden border border-orange-200">
+                    <button
+                        class="accordion-btn w-full px-6 py-4 text-left font-semibold text-gray-800 hover:bg-orange-100 transition-colors flex items-center justify-between">
+                        <span>શું કોઈ સાઇડ ઇફેક્ટ છે?</span>
+                        <span class="text-2xl text-orange-500">+</span>
+                    </button>
+                    <div class="accordion-content px-6 pb-4">
+                        <p class="text-gray-600">
+                            નહીં, આ 100% કુદરતી આયુર્વેદિક ઉત્પાદન છે. કોઈ કેમિકલ નથી. સાઇડ ઇફેક્ટ નથી. તબીબી દેખરેખ
+                            હેઠળ બનાવાયેલ છે.
+                        </p>
+                    </div>
+                </div>
+
+                <div class="bg-orange-50 rounded-xl shadow-md overflow-hidden border border-orange-200">
+                    <button
+                        class="accordion-btn w-full px-6 py-4 text-left font-semibold text-gray-800 hover:bg-orange-100 transition-colors flex items-center justify-between">
+                        <span>શું બંને લેવાની જરૂર છે?</span>
+                        <span class="text-2xl text-orange-500">+</span>
+                    </button>
+                    <div class="accordion-content px-6 pb-4">
+                        <p class="text-gray-600">
+                            હા, શ્રેષ્ઠ પરિણામ માટે પુરુષ અને સ્ત્રી બંનેએ સાથે લેવું જોઈએ. આથી બંનેની ફર્ટિલિટી સુધરે
+                            અને સફળતાની શક્યતા વધે.
+                        </p>
+                    </div>
+                </div>
+
+                <div class="bg-orange-50 rounded-xl shadow-md overflow-hidden border border-orange-200">
+                    <button
+                        class="accordion-btn w-full px-6 py-4 text-left font-semibold text-gray-800 hover:bg-orange-100 transition-colors flex items-center justify-between">
+                        <span>પેમેન્ટ કેવી રીતે કરવું?</span>
+                        <span class="text-2xl text-orange-500">+</span>
+                    </button>
+                    <div class="accordion-content px-6 pb-4">
+                        <p class="text-gray-600">
+                            અમે Cash on Delivery (COD) ઓફર કરીએ છીએ. પ્રોડક્ટ મળ્યા પછી જ પેમેન્ટ કરો. ઓનલાઈન પેમેન્ટ પણ
+                            ઉપલબ્ધ છે.
+                        </p>
+                    </div>
+                </div>
+
+                <div class="bg-orange-50 rounded-xl shadow-md overflow-hidden border border-orange-200">
+                    <button
+                        class="accordion-btn w-full px-6 py-4 text-left font-semibold text-gray-800 hover:bg-orange-100 transition-colors flex items-center justify-between">
+                        <span>ડિલિવરી કેટલા દિવસમાં થાય?</span>
+                        <span class="text-2xl text-orange-500">+</span>
+                    </button>
+                    <div class="accordion-content px-6 pb-4">
+                        <p class="text-gray-600">
+                            સામાન્ય રીતે 5-7 કાર્યકારી દિવસમાં ડિલિવરી થાય છે. દૂરના વિસ્તારમાં થોડો વધુ સમય લાગી શકે.
+                            મફત ડિલિવરી છે.
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- DISCLAIMER -->
+        <section class="p-4 bg-gray-100">
+            <div class="max-w-md mx-auto">
+                <h3 class="font-bold text-gray-800 mb-3 text-center">⚠️ જરૂરી નોંધ</h3>
+                <p class="text-xs text-gray-600 leading-relaxed text-center">
+                    આ આયુર્વેદિક ઉત્પાદન છે અને પરિણામો વ્યક્તિ પ્રમાણે અલગ હોઈ શકે છે. આ કોઈ મેડિકલ ટ્રીટમેન્ટની જગ્યાએ
+                    નથી. ગંભીર સ્વાસ્થ્ય સમસ્યા હોય તો ડૉક્ટરની સલાહ લો. ગર્ભવતી અને સ્તનપાન કરાવતી સ્ત્રીઓ ઉપયોગ પહેલાં
+                    ડૉક્ટરની સલાહ લો. 18 વર્ષથી ઓછી ઉંમરના લોકો માટે નથી.
+                </p>
+            </div>
+        </section>
+
+        <!-- FOOTER -->
+        <footer class="p-4 bg-gray-800 text-white text-center">
+            <p class="text-sm mb-2">© 2026 વંશવર્ધક આયુર્વેદ</p>
+            <p class="text-xs text-gray-400">તમારા સંતાન સુખ માટે સમર્પિત 🙏</p>
+        </footer>
+
+    </div>
+
+    <!-- JavaScript -->
+    <script>
+        document.addEventListener('DOMContentLoaded', function () {
+            // Ripple effect on card clicks
+            const clickableCards = document.querySelectorAll('.card-clickable');
+
+            clickableCards.forEach(card => {
+                card.addEventListener('click', function (e) {
+                    const ripple = document.createElement('span');
+                    ripple.classList.add('ripple');
+
+                    const rect = this.getBoundingClientRect();
+                    const size = Math.max(rect.width, rect.height);
+                    const x = e.clientX - rect.left - size / 2;
+                    const y = e.clientY - rect.top - size / 2;
+
+                    ripple.style.width = ripple.style.height = size + 'px';
+                    ripple.style.left = x + 'px';
+                    ripple.style.top = y + 'px';
+
+                    this.appendChild(ripple);
+
+                    setTimeout(() => ripple.remove(), 600);
+                });
+            });
+
+            // Accordion functionality
+            const accordionButtons = document.querySelectorAll('.accordion-btn');
+
+            accordionButtons.forEach(button => {
+                button.addEventListener('click', function () {
+                    const content = this.nextElementSibling;
+                    const icon = this.querySelector('span:last-child');
+
+                    // Close all other accordions
+                    document.querySelectorAll('.accordion-content').forEach(item => {
+                        if (item !== content) {
+                            item.classList.remove('active');
+                        }
+                    });
+
+                    document.querySelectorAll('.accordion-btn span:last-child').forEach(item => {
+                        if (item !== icon) {
+                            item.textContent = '+';
+                        }
+                    });
+
+                    // Toggle current accordion
+                    content.classList.toggle('active');
+                    icon.textContent = content.classList.contains('active') ? '−' : '+';
+                });
+            });
+
+            // Smooth scroll for anchor links
+            document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+                anchor.addEventListener('click', function (e) {
+                    e.preventDefault();
+                    const target = document.querySelector(this.getAttribute('href'));
+                    if (target) {
+                        target.scrollIntoView({
+                            behavior: 'smooth',
+                            block: 'start'
+                        });
+                    }
+                });
+            });
+
+            // Form submission handling
+            const form = document.querySelector('form');
+            form.addEventListener('submit', function (e) {
+                e.preventDefault();
+                alert('આભાર! અમે તમારી સાથે ટૂંક સમયમાં સંપર્ક કરીશું. 🙏');
+                form.reset();
+            });
+
+            // Intersection Observer for fade-in animations
+            const observerOptions = {
+                threshold: 0.1,
+                rootMargin: '0px 0px -50px 0px'
+            };
+
+            const observer = new IntersectionObserver(function (entries) {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+                        entry.target.style.opacity = '1';
+                        entry.target.style.transform = 'translateY(0)';
+                    }
+                });
+            }, observerOptions);
+
+            document.querySelectorAll('.animate-fade-in').forEach(el => {
+                observer.observe(el);
+            });
+        });
+    </script>
+
+</body>
+
+</html>
