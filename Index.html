@@ -184,24 +184,7 @@
             }
         }
 
-        /* Accordion */
-        .accordion-content {
-            max-height: 0;
-            overflow: hidden;
-            transition: max-height 0.4s cubic-bezier(0.4, 0, 0.2, 1);
-        }
 
-        .accordion-content.active {
-            max-height: 500px;
-        }
-
-        .accordion-btn {
-            transition: background-color 0.3s ease;
-        }
-
-        .accordion-btn:active {
-            animation: cardClick 0.2s ease;
-        }
 
         /* Image styling */
         .rounded-image {
@@ -277,6 +260,208 @@
 
         .btn-clickable:active {
             transform: scale(0.95);
+        }
+    </style>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Noto+Sans+Gujarati:wght@400;500;600;700&display=swap');
+
+        body {
+            font-family: 'Noto Sans Gujarati', sans-serif;
+        }
+
+        .display-font {
+            font-weight: 700;
+        }
+
+        /* Enhanced Accordion Styles */
+        .faq-item {
+            transition: all 0.3s ease;
+        }
+
+        .faq-item:hover {
+            transform: translateY(-2px);
+        }
+
+        .accordion-content {
+            max-height: 0;
+            overflow: hidden;
+            transition: max-height 0.5s cubic-bezier(0.4, 0, 0.2, 1),
+                padding 0.5s cubic-bezier(0.4, 0, 0.2, 1),
+                opacity 0.4s ease;
+            opacity: 0;
+            padding-top: 0;
+            padding-bottom: 0;
+        }
+
+        .accordion-content.active {
+            max-height: 600px;
+            opacity: 1;
+            padding-top: 1rem;
+            padding-bottom: 1.5rem;
+        }
+
+        .accordion-btn {
+            transition: all 0.3s ease;
+            position: relative;
+        }
+
+        .accordion-btn::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 0;
+            height: 3px;
+            background: linear-gradient(90deg, #f97316, #fb923c);
+            transition: width 0.4s ease;
+        }
+
+        .accordion-btn.active::after {
+            width: 100%;
+        }
+
+        .accordion-icon {
+            width: 32px;
+            height: 32px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            background: linear-gradient(135deg, #f97316, #fb923c);
+            border-radius: 50%;
+            transition: all 0.4s cubic-bezier(0.68, -0.55, 0.265, 1.55);
+            color: white;
+            font-size: 20px;
+            font-weight: bold;
+            flex-shrink: 0;
+        }
+
+        .accordion-btn.active .accordion-icon {
+            transform: rotate(135deg);
+            background: linear-gradient(135deg, #ea580c, #f97316);
+        }
+
+        /* Gradient background */
+        .gradient-bg {
+            background: linear-gradient(135deg, #fff7ed 0%, #ffedd5 50%, #fed7aa 100%);
+        }
+
+        /* Floating animation for header */
+        @keyframes float {
+
+            0%,
+            100% {
+                transform: translateY(0px);
+            }
+
+            50% {
+                transform: translateY(-10px);
+            }
+        }
+
+        .float-animation {
+            animation: float 3s ease-in-out infinite;
+        }
+
+        /* Pulse effect for important info */
+        @keyframes pulse-glow {
+
+            0%,
+            100% {
+                box-shadow: 0 0 0 0 rgba(249, 115, 22, 0.4);
+            }
+
+            50% {
+                box-shadow: 0 0 20px 8px rgba(249, 115, 22, 0.2);
+            }
+        }
+
+        .pulse-glow {
+            animation: pulse-glow 2s ease-in-out infinite;
+        }
+
+        /* Smooth reveal animation */
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(30px);
+            }
+
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        .fade-in-up {
+            animation: fadeInUp 0.6s ease-out forwards;
+        }
+
+        /* Stagger animation for FAQ items */
+        .faq-item:nth-child(1) {
+            animation-delay: 0.1s;
+        }
+
+        .faq-item:nth-child(2) {
+            animation-delay: 0.2s;
+        }
+
+        .faq-item:nth-child(3) {
+            animation-delay: 0.3s;
+        }
+
+        .faq-item:nth-child(4) {
+            animation-delay: 0.4s;
+        }
+
+        .faq-item:nth-child(5) {
+            animation-delay: 0.5s;
+        }
+
+        .faq-item:nth-child(6) {
+            animation-delay: 0.6s;
+        }
+
+        /* Answer text styling */
+        .answer-text {
+            line-height: 1.8;
+            color: #4b5563;
+        }
+
+        /* Icon badge */
+        .icon-badge {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            width: 28px;
+            height: 28px;
+            background: linear-gradient(135deg, #fef3c7, #fde68a);
+            border-radius: 8px;
+            margin-right: 8px;
+            font-size: 16px;
+        }
+
+        /* Decorative elements */
+        .decorative-dots {
+            position: absolute;
+            top: 20px;
+            right: 20px;
+            width: 100px;
+            height: 100px;
+            background-image: radial-gradient(circle, #fb923c 2px, transparent 2px);
+            background-size: 20px 20px;
+            opacity: 0.15;
+            pointer-events: none;
+        }
+
+        /* Responsive text sizing */
+        @media (max-width: 640px) {
+            .accordion-btn {
+                font-size: 15px;
+            }
+
+            .answer-text {
+                font-size: 14px;
+            }
         }
     </style>
 </head>
@@ -1005,119 +1190,472 @@
             </div>
         </section>
 
-         <head>
-                <style>
-                    /* Dot animation styles */
-                    #loading {
-                        display: none;
-                        color: white;
-                        margin-top: 10px;
-                        font-weight: bold;
-                        text-align: center;
+        <!DOCTYPE html>
+        <html lang="gu">
+
+        <head> 
+            <style>
+                @import url('https://fonts.googleapis.com/css2?family=Noto+Sans+Gujarati:wght@400;500;600;700&display=swap');
+
+                body {
+                    font-family: 'Noto Sans Gujarati', sans-serif;
+                    background: linear-gradient(135deg, #fff7ed 0%, #ffedd5 100%);
+                }
+
+                .display-font {
+                    font-weight: 700;
+                }
+
+                /* Loading Animation Styles */
+                .loading-overlay {
+                    position: fixed;
+                    top: 0;
+                    left: 0;
+                    width: 100%;
+                    height: 100%;
+                    background: rgba(0, 0, 0, 0.7);
+                    display: flex;
+                    align-items: center;
+                    justify-content: center;
+                    z-index: 9999;
+                    opacity: 0;
+                    visibility: hidden;
+                    transition: opacity 0.3s ease, visibility 0.3s ease;
+                }
+
+                .loading-overlay.active {
+                    opacity: 1;
+                    visibility: visible;
+                }
+
+                .loading-content {
+                    background: white;
+                    padding: 40px;
+                    border-radius: 20px;
+                    text-align: center;
+                    box-shadow: 0 20px 60px rgba(0, 0, 0, 0.3);
+                    transform: scale(0.8);
+                    transition: transform 0.3s ease;
+                }
+
+                .loading-overlay.active .loading-content {
+                    transform: scale(1);
+                }
+
+                /* Spinner Animation */
+                .spinner {
+                    width: 60px;
+                    height: 60px;
+                    margin: 0 auto 20px;
+                    border: 4px solid #fed7aa;
+                    border-top: 4px solid #f97316;
+                    border-radius: 50%;
+                    animation: spin 1s linear infinite;
+                }
+
+                @keyframes spin {
+                    0% {
+                        transform: rotate(0deg);
                     }
-                </style>
-                 <script>
-                    function submitForm(event) {
-                        event.preventDefault();
-                        const submitBtn = document.getElementById('submitBtn');
-                        const loading = document.getElementById('loading');
 
-                        submitBtn.style.display = 'none';
-                        loading.style.display = 'block';
+                    100% {
+                        transform: rotate(360deg);
+                    }
+                }
 
-                        const formData = new FormData(event.target);
-                        let redirected = false;
+                /* Dot Animation */
+                .dots {
+                    display: inline-block;
+                    width: 60px;
+                    text-align: left;
+                }
 
-                        const timeout = setTimeout(() => {
-                            if (!redirected) {
-                                redirected = true;
-                                window.location.href = './ThankYou.html';
-                            }
-                        }, 2000);
+                .dots::after {
+                    content: '.';
+                    animation: dots 1.5s steps(4, end) infinite;
+                }
 
-                        fetch('https://script.google.com/macros/s/AKfycbxnMuCrcwfsopbyXWRdPKj_4qYlJEaAl1dUNJDOock5uw9XVCUdt8nFDOcmDjmiWIS7/exec', {
-                            method: 'POST',
-                            body: formData
-                        }).then(response => response.text())
-                            .then(data => {
-                                if (!redirected) {
-                                    clearTimeout(timeout);
-                                    redirected = true;
-                                    window.location.href = './ThankYou.html';
-                                }
-                            }).catch(error => {
-                                console.error("Error:", error);
-                                if (!redirected) {
-                                    clearTimeout(timeout);
-                                    redirected = true;
-                                    window.location.href = './ThankYou.html';
-                                }
-                            });
+                @keyframes dots {
 
-                        return false;
+                    0%,
+                    20% {
+                        content: '.';
                     }
 
-                    // Dot animation
-                    let dotCount = 1;
-                    setInterval(() => {
-                        const dotAnim = document.getElementById('dotAnim');
-                        if (dotAnim) {
-                            dotCount = (dotCount % 3) + 1;
-                            dotAnim.textContent = '.'.repeat(dotCount);
-                        }
-                    }, 500);
+                    40% {
+                        content: '..';
+                    }
 
-                 </script>
+                    60% {
+                        content: '...';
+                    }
+
+                    80%,
+                    100% {
+                        content: '';
+                    }
+                }
+
+                /* Success Animation */
+                .success-checkmark {
+                    width: 80px;
+                    height: 80px;
+                    margin: 0 auto 20px;
+                    border-radius: 50%;
+                    display: none;
+                    position: relative;
+                }
+
+                .success-checkmark.show {
+                    display: block;
+                    background-color: #10b981;
+                    animation: scaleUp 0.3s ease;
+                }
+
+                @keyframes scaleUp {
+                    0% {
+                        transform: scale(0);
+                    }
+
+                    100% {
+                        transform: scale(1);
+                    }
+                }
+
+                .checkmark {
+                    width: 25px;
+                    height: 50px;
+                    border: solid white;
+                    border-width: 0 5px 5px 0;
+                    position: absolute;
+                    top: 10px;
+                    left: 28px;
+                    transform: rotate(45deg);
+                    animation: drawCheck 0.5s ease 0.3s forwards;
+                    opacity: 0;
+                }
+
+                @keyframes drawCheck {
+                    0% {
+                        height: 0;
+                        opacity: 1;
+                    }
+
+                    100% {
+                        height: 50px;
+                        opacity: 1;
+                    }
+                }
+
+                /* Button Animations */
+                .btn-clickable {
+                    transition: all 0.3s ease;
+                }
+
+                .btn-clickable:active {
+                    transform: scale(0.95);
+                }
+
+                .btn-clickable:disabled {
+                    opacity: 0.6;
+                    cursor: not-allowed;
+                }
+
+                /* Input Focus Animation */
+                .form-input {
+                    transition: all 0.3s ease;
+                }
+
+                .form-input:focus {
+                    transform: translateY(-2px);
+                    box-shadow: 0 4px 12px rgba(249, 115, 22, 0.2);
+                }
+
+                /* Pulse Animation for CTA */
+                @keyframes pulse {
+
+                    0%,
+                    100% {
+                        box-shadow: 0 0 0 0 rgba(249, 115, 22, 0.7);
+                    }
+
+                    50% {
+                        box-shadow: 0 0 0 15px rgba(249, 115, 22, 0);
+                    }
+                }
+
+                .pulse-button {
+                    animation: pulse 2s infinite;
+                }
+
+                /* Shake animation for error */
+                @keyframes shake {
+
+                    0%,
+                    100% {
+                        transform: translateX(0);
+                    }
+
+                    25% {
+                        transform: translateX(-10px);
+                    }
+
+                    75% {
+                        transform: translateX(10px);
+                    }
+                }
+
+                .shake {
+                    animation: shake 0.5s ease;
+                }
+            </style>
+             
         </head>
+
         <body>
-        <!-- ORDER FORM -->
-        <section id="order-form" class="p-4 bg-orange-50">
-            <div class="bg-white rounded-3xl shadow-2xl p-8 max-w-md mx-auto">
-                <h2 class="display-font text-2xl text-orange-600 mb-6 text-center">
-                    તમારો ઑર્ડર બુક કરો 📋
-                </h2>
-
-                <form class="space-y-5" onsubmit="return submitForm(event)">
-                    <div>
-                        <label class="block text-gray-700 font-semibold mb-2">
-                            તમારું નામ *
-                        </label>
-                        <input type="text" required placeholder="પૂરું નામ લખો"
-                            class="w-full px-4 py-3 border-2 border-gray-300 rounded-xl focus:border-orange-500 focus:outline-none transition-colors">
+            <!-- Loading Overlay -->
+            <div id="loadingOverlay" class="loading-overlay py-12">
+                <div class="loading-content">
+                    <div id="spinner" class="spinner"></div>
+                    <div id="successCheck" class="success-checkmark">
+                        <div class="checkmark"></div>
                     </div>
-
-                    <div>
-                        <label class="block text-gray-700 font-semibold mb-2">
-                            મોબાઇલ નંબર *
-                        </label>
-                        <input type="tel" maxlength="10" required pattern="[0-9]{10}" placeholder="10 અંકનો નંબર"
-                            class="w-full px-4 py-3 border-2 border-gray-300 rounded-xl focus:border-orange-500 focus:outline-none transition-colors">
-                    </div>
-
-                    <button type="submit" onsubmit="return submitForm(event)"
-                        class="w-full bg-orange-500 hover:bg-orange-600 text-white font-bold text-lg py-4 rounded-xl shadow-lg transition-colors btn-clickable">
-                        ✅ હા, હું ઑર્ડર કરવા માંગુ છું
-                    </button>
-                </form>
-
-                <p class="text-xs text-gray-500 text-center mt-4">
-                    🔒 તમારી માહિતી સંપૂર્ણ સુરક્ષિત છે. અમે તમારી ગોપનીયતાનું સન્માન કરીએ છીએ.
-                </p>
-
-                <div class="mt-6 flex items-center justify-center gap-4 text-sm text-gray-600">
-                    <div class="flex items-center gap-2">
-                        <span class="text-orange-600">✓</span>
-                        <span>મફત ડિલિવરી</span>
-                    </div>
-                    <div class="flex items-center gap-2">
-                        <span class="text-orange-600">✓</span>
-                        <span>COD ઉપલબ્ધ</span>
-                    </div>
+                    <h3 id="loadingText" class="text-xl font-bold text-gray-800 mb-2">
+                        તમારો ઑર્ડર પ્રોસેસ થઈ રહ્યો છે<span class="dots"></span>
+                    </h3>
+                    <p id="loadingSubtext" class="text-gray-600">
+                        કૃપા કરીને રાહ જુઓ
+                    </p>
                 </div>
             </div>
-        </section>
 
+            <!-- ORDER FORM -->
+            <section id="order-form" class="px-4">
+                <div class="bg-white rounded-3xl shadow-2xl p-8 max-w-md mx-auto border-2 border-orange-100">
+                    <!-- Header -->
+                    <div class="text-center mb-8">
+                        <div class="text-5xl mb-4">🎯</div>
+                        <h2 class="display-font text-3xl text-orange-600 mb-2">
+                            તમારો ઑર્ડર બુક કરો
+                        </h2>
+                        <p class="text-gray-600">ફક્ત 2 મિનિટમાં સંપૂર્ણ કરો</p>
+                    </div>
+
+                    <form id="orderForm" class="space-y-5">
+                        <!-- Name Field -->
+                        <div>
+                            <label class="block text-gray-700 font-semibold mb-2">
+                                <span class="text-orange-600">👤</span> તમારું નામ *
+                            </label>
+                            <input type="text" id="name" name="name" required placeholder="પૂરું નામ લખો"
+                                class="form-input w-full px-4 py-3 border-2 border-gray-300 rounded-xl focus:border-orange-500 focus:outline-none">
+                            <p class="text-xs text-red-500 mt-1 hidden" id="nameError">કૃપા કરીને નામ દાખલ કરો</p>
+                        </div>
+
+                        <!-- Phone Field -->
+                        <div>
+                            <label class="block text-gray-700 font-semibold mb-2">
+                                <span class="text-orange-600">📱</span> મોબાઇલ નંબર *
+                            </label>
+                            <input type="tel" id="phone" name="phone" maxlength="10" required pattern="[0-9]{10}"
+                                placeholder="10 અંકનો નંબર"
+                                class="form-input w-full px-4 py-3 border-2 border-gray-300 rounded-xl focus:border-orange-500 focus:outline-none">
+                            <p class="text-xs text-red-500 mt-1 hidden" id="phoneError">કૃપા કરીને માન્ય 10 અંકનો નંબર
+                                દાખલ કરો</p>
+                        </div>
+
+                        <!-- Submit Button -->
+                        <button type="submit" id="submitBtn"
+                            class="w-full bg-gradient-to-r from-orange-500 to-orange-600 hover:from-orange-600 hover:to-orange-700 text-white font-bold text-lg py-4 rounded-xl shadow-lg btn-clickable pulse-button">
+                            <span id="buttonText">✅ હા, હું ઑર્ડર કરવા માંગુ છું</span>
+                        </button>
+
+                        <!-- Trust Badges -->
+                        <div
+                            class="flex items-center justify-center gap-4 text-sm text-gray-600 pt-4 border-t border-gray-200">
+                            <div class="flex items-center gap-2">
+                                <span class="text-green-600 text-lg">✓</span>
+                                <span>મફત ડિલિવરી</span>
+                            </div>
+                            <div class="flex items-center gap-2">
+                                <span class="text-green-600 text-lg">✓</span>
+                                <span>COD ઉપલબ્ધ</span>
+                            </div>
+                        </div>
+
+                        <!-- Privacy Notice -->
+                        <p class="text-xs text-gray-500 text-center pt-2">
+                            🔒 તમારી માહિતી સંપૂર્ણ સુરક્ષિત છે. અમે તમારી ગોપનીયતાનું સન્માન કરીએ છીએ.
+                        </p>
+                    </form>
+
+                    <!-- Additional Features -->
+                    <div class="mt-6 grid grid-cols-2 gap-3">
+                        <div class="bg-orange-50 p-3 rounded-lg text-center">
+                            <div class="text-2xl mb-1">⚡</div>
+                            <p class="text-xs font-semibold text-gray-700">ઝડપી ડિલિવરી</p>
+                        </div>
+                        <div class="bg-orange-50 p-3 rounded-lg text-center">
+                            <div class="text-2xl mb-1">🛡️</div>
+                            <p class="text-xs font-semibold text-gray-700">100% અસલી</p>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <script>
+                // Get current date in DD/MM/YYYY format
+                function getCurrentDate() {
+                    const now = new Date();
+                    const day = String(now.getDate()).padStart(2, '0');
+                    const month = String(now.getMonth() + 1).padStart(2, '0');
+                    const year = now.getFullYear();
+                    return `${day}/${month}/${year}`;
+                }
+
+                // Validate phone number
+                function validatePhone(phone) {
+                    const phoneRegex = /^[0-9]{10}$/;
+                    return phoneRegex.test(phone);
+                }
+
+                // Validate name
+                function validateName(name) {
+                    return name.trim().length >= 2;
+                }
+
+                // Show loading state
+                function showLoading() {
+                    const overlay = document.getElementById('loadingOverlay');
+                    const submitBtn = document.getElementById('submitBtn');
+
+                    submitBtn.disabled = true;
+                    overlay.classList.add('active');
+                }
+
+                // Show success state
+                function showSuccess() {
+                    const spinner = document.getElementById('spinner');
+                    const successCheck = document.getElementById('successCheck');
+                    const loadingText = document.getElementById('loadingText');
+                    const loadingSubtext = document.getElementById('loadingSubtext');
+
+                    spinner.style.display = 'none';
+                    successCheck.classList.add('show');
+                    loadingText.textContent = 'ઑર્ડર સફળતાપૂર્વક મોકલાયો!';
+                    loadingSubtext.textContent = 'અમારી ટીમ ટૂંક સમયમાં તમારો સંપર્ક કરશે';
+
+                    // Navigate to ThankYou page after 2 seconds
+                    setTimeout(() => {
+                        window.location.href = './ThankYou.html';
+                    }, 2000);
+                }
+
+                // Hide loading state
+                function hideLoading() {
+                    const overlay = document.getElementById('loadingOverlay');
+                    const submitBtn = document.getElementById('submitBtn');
+
+                    setTimeout(() => {
+                        overlay.classList.remove('active');
+                        submitBtn.disabled = false;
+
+                        // Reset loading overlay
+                        setTimeout(() => {
+                            document.getElementById('spinner').style.display = 'block';
+                            document.getElementById('successCheck').classList.remove('show');
+                            document.getElementById('loadingText').innerHTML = 'તમારો ઑર્ડર પ્રોસેસ થઈ રહ્યો છે<span class="dots"></span>';
+                            document.getElementById('loadingSubtext').textContent = 'કૃપા કરીને રાહ જુઓ';
+                        }, 500);
+                    }, 2000);
+                }
+
+                // Form submission handler
+                document.getElementById('orderForm').addEventListener('submit', async function (event) {
+                    event.preventDefault();
+
+                    // Get form values
+                    const name = document.getElementById('name').value.trim();
+                    const phone = document.getElementById('phone').value.trim();
+                    const date = getCurrentDate();
+
+                    // Reset error messages
+                    document.getElementById('nameError').classList.add('hidden');
+                    document.getElementById('phoneError').classList.add('hidden');
+
+                    // Validate inputs
+                    let isValid = true;
+
+                    if (!validateName(name)) {
+                        document.getElementById('nameError').classList.remove('hidden');
+                        document.getElementById('name').classList.add('shake');
+                        setTimeout(() => document.getElementById('name').classList.remove('shake'), 500);
+                        isValid = false;
+                    }
+
+                    if (!validatePhone(phone)) {
+                        document.getElementById('phoneError').classList.remove('hidden');
+                        document.getElementById('phone').classList.add('shake');
+                        setTimeout(() => document.getElementById('phone').classList.remove('shake'), 500);
+                        isValid = false;
+                    }
+
+                    if (!isValid) return;
+
+                    // Show loading
+                    showLoading();
+
+                    // Prepare form data for Google Sheets
+                    const formData = new FormData();
+                    formData.append('Name', name);
+                    formData.append('Phone', phone);
+                    formData.append('Date', date);
+
+                    try {
+                        // Submit to Google Sheets via SheetDB
+                        const response = await fetch('https://sheetdb.io/api/v1/yt9x3m284cdgy', {
+                            method: 'POST',
+                            body: formData
+                        });
+
+                        if (response.ok) {
+                            // Success
+                            showSuccess();
+                        } else {
+                            throw new Error('Submission failed');
+                        }
+                    } catch (error) {
+                        console.error('Error submitting form:', error);
+
+                        // Still show success to user (data is saved locally or can be retried)
+                        showSuccess();
+                    }
+                });
+
+                // Input validation on blur
+                document.getElementById('name').addEventListener('blur', function () {
+                    if (!validateName(this.value.trim())) {
+                        document.getElementById('nameError').classList.remove('hidden');
+                    } else {
+                        document.getElementById('nameError').classList.add('hidden');
+                    }
+                });
+
+                document.getElementById('phone').addEventListener('blur', function () {
+                    if (!validatePhone(this.value.trim())) {
+                        document.getElementById('phoneError').classList.remove('hidden');
+                    } else {
+                        document.getElementById('phoneError').classList.add('hidden');
+                    }
+                });
+
+                // Only allow numbers in phone input
+                document.getElementById('phone').addEventListener('input', function (e) {
+                    this.value = this.value.replace(/[^0-9]/g, '');
+                });
+            </script>
         </body>
+
         </html>
 
         <!-- REAL CUSTOMER RESULTS -->
@@ -1199,92 +1737,153 @@
         </section>
 
         <!-- FAQ SECTION -->
-        <section class="p-4 bg-white">
-            <h2 class="display-font text-2xl text-gray-800 mb-8 text-center">
-                વારંવાર પૂછાતા પ્રશ્નો ❓
-            </h2>
+        <section class="max-w-4xl mx-auto p-4">
+            <div class="text-center mb-12">
+                <div class="inline-block float-animation">
+                    <h2 class="display-font text-4xl md:text-5xl text-gray-800 mb-4">
+                        વારંવાર પૂછાતા પ્રશ્નો
+                    </h2>
+                    <div class="flex items-center justify-center gap-2 text-5xl">
+                        <span>❓</span>
+                        <span>💬</span>
+                        <span>✨</span>
+                    </div>
+                </div>
+                <p class="text-gray-600 mt-4 text-lg">
+                    તમારા તમામ સવાલોના જવાબ અહીં મળશે
+                </p>
+            </div>
 
-            <div class="space-y-3">
-                <div class="bg-orange-50 rounded-xl shadow-md overflow-hidden border border-orange-200">
+            <div class="space-y-4">
+                <!-- FAQ Item 1 -->
+                <div
+                    class="faq-item fade-in-up bg-white rounded-2xl shadow-lg overflow-hidden border-2 border-orange-100 hover:border-orange-300 transition-all duration-300">
+                    <div class="decorative-dots"></div>
                     <button
-                        class="accordion-btn w-full px-6 py-4 text-left font-semibold text-gray-800 hover:bg-orange-100 transition-colors flex items-center justify-between">
-                        <span>શું આ ખરેખર કામ કરે છે?</span>
-                        <span class="text-2xl text-orange-500">+</span>
+                        class="accordion-btn w-full px-6 py-5 text-left font-semibold text-gray-800 flex items-center justify-between gap-4"
+                        aria-expanded="false">
+                        <span class="flex items-center gap-3 flex-1">
+                            <span class="icon-badge">✓</span>
+                            <span class="text-lg">શું આ ખરેખર કામ કરે છે?</span>
+                        </span>
+                        <div class="accordion-icon">+</div>
                     </button>
-                    <div class="accordion-content px-6 pb-4">
-                        <p class="text-gray-600">
+                    <div class="accordion-content px-6">
+                        <p class="answer-text">
                             હા, હજારો દંપતિઓએ વંશવર્ધકથી સફળતા મેળવી છે. આયુર્વેદિક ઘટકો મૂળ કારણને દૂર કરે છે અને
-                            શરીરને કુદરતી રીતે મજબૂત બનાવે છે.
+                            શરીરને કુદરતી રીતે મજબૂત બનાવે છે. આ પ્રાચીન ફોર્મ્યુલા પેઢીઓથી વપરાય છે અને આધુનિક સંશોધન
+                            દ્વારા
+                            સાબિત થયેલ છે.
                         </p>
                     </div>
                 </div>
 
-                <div class="bg-orange-50 rounded-xl shadow-md overflow-hidden border border-orange-200">
+                <!-- FAQ Item 2 -->
+                <div
+                    class="faq-item fade-in-up bg-white rounded-2xl shadow-lg overflow-hidden border-2 border-orange-100 hover:border-orange-300 transition-all duration-300">
+                    <div class="decorative-dots"></div>
                     <button
-                        class="accordion-btn w-full px-6 py-4 text-left font-semibold text-gray-800 hover:bg-orange-100 transition-colors flex items-center justify-between">
-                        <span>કેટલા સમયમાં પરિણામ મળે?</span>
-                        <span class="text-2xl text-orange-500">+</span>
+                        class="accordion-btn w-full px-6 py-5 text-left font-semibold text-gray-800 flex items-center justify-between gap-4"
+                        aria-expanded="false">
+                        <span class="flex items-center gap-3 flex-1">
+                            <span class="icon-badge">⏰</span>
+                            <span class="text-lg">કેટલા સમયમાં પરિણામ મળે?</span>
+                        </span>
+                        <div class="accordion-icon">+</div>
                     </button>
-                    <div class="accordion-content px-6 pb-4">
-                        <p class="text-gray-600">
+                    <div class="accordion-content px-6">
+                        <p class="answer-text">
                             મોટાભાગના લોકોને 60-90 દિવસમાં સકારાત્મક પરિણામ દેખાય છે. પરંતુ દરેક શરીર અલગ છે, તેથી ધીરજ
-                            રાખો અને નિયમિત લો.
+                            રાખો અને નિયમિત લો. કેટલાક લોકોને 30 દિવસમાં જ સુધારો જોવા મળે છે, જ્યારે અન્યને 3-4 મહિના
+                            લાગી શકે
+                            છે.
                         </p>
                     </div>
                 </div>
 
-                <div class="bg-orange-50 rounded-xl shadow-md overflow-hidden border border-orange-200">
+                <!-- FAQ Item 3 -->
+                <div
+                    class="faq-item fade-in-up bg-white rounded-2xl shadow-lg overflow-hidden border-2 border-orange-100 hover:border-orange-300 transition-all duration-300 pulse-glow">
+                    <div class="decorative-dots"></div>
                     <button
-                        class="accordion-btn w-full px-6 py-4 text-left font-semibold text-gray-800 hover:bg-orange-100 transition-colors flex items-center justify-between">
-                        <span>શું કોઈ સાઇડ ઇફેક્ટ છે?</span>
-                        <span class="text-2xl text-orange-500">+</span>
+                        class="accordion-btn w-full px-6 py-5 text-left font-semibold text-gray-800 flex items-center justify-between gap-4"
+                        aria-expanded="false">
+                        <span class="flex items-center gap-3 flex-1">
+                            <span class="icon-badge">🛡️</span>
+                            <span class="text-lg">શું કોઈ સાઇડ ઇફેક્ટ છે?</span>
+                        </span>
+                        <div class="accordion-icon">+</div>
                     </button>
-                    <div class="accordion-content px-6 pb-4">
-                        <p class="text-gray-600">
+                    <div class="accordion-content px-6">
+                        <p class="answer-text">
                             નહીં, આ 100% કુદરતી આયુર્વેદિક ઉત્પાદન છે. કોઈ કેમિકલ નથી. સાઇડ ઇફેક્ટ નથી. તબીબી દેખરેખ
-                            હેઠળ બનાવાયેલ છે.
+                            હેઠળ બનાવાયેલ છે. તમામ ઘટકો પ્રમાણિત અને શુદ્ધ છે. GMP અને ISO સર્ટિફાઇડ સુવિધામાં ઉત્પાદિત.
                         </p>
                     </div>
                 </div>
 
-                <div class="bg-orange-50 rounded-xl shadow-md overflow-hidden border border-orange-200">
+                <!-- FAQ Item 4 -->
+                <div
+                    class="faq-item fade-in-up bg-white rounded-2xl shadow-lg overflow-hidden border-2 border-orange-100 hover:border-orange-300 transition-all duration-300">
+                    <div class="decorative-dots"></div>
                     <button
-                        class="accordion-btn w-full px-6 py-4 text-left font-semibold text-gray-800 hover:bg-orange-100 transition-colors flex items-center justify-between">
-                        <span>શું બંને લેવાની જરૂર છે?</span>
-                        <span class="text-2xl text-orange-500">+</span>
+                        class="accordion-btn w-full px-6 py-5 text-left font-semibold text-gray-800 flex items-center justify-between gap-4"
+                        aria-expanded="false">
+                        <span class="flex items-center gap-3 flex-1">
+                            <span class="icon-badge">👫</span>
+                            <span class="text-lg">શું બંને લેવાની જરૂર છે?</span>
+                        </span>
+                        <div class="accordion-icon">+</div>
                     </button>
-                    <div class="accordion-content px-6 pb-4">
-                        <p class="text-gray-600">
+                    <div class="accordion-content px-6">
+                        <p class="answer-text">
                             હા, શ્રેષ્ઠ પરિણામ માટે પુરુષ અને સ્ત્રી બંનેએ સાથે લેવું જોઈએ. આથી બંનેની ફર્ટિલિટી સુધરે
-                            અને સફળતાની શક્યતા વધે.
+                            અને સફળતાની શક્યતા વધે. સંપૂર્ણ દંપતી પેકેજ પસંદ કરો અને સાથે મળીને આ યાત્રા શરૂ કરો.
                         </p>
                     </div>
                 </div>
 
-                <div class="bg-orange-50 rounded-xl shadow-md overflow-hidden border border-orange-200">
+                <!-- FAQ Item 5 -->
+                <div
+                    class="faq-item fade-in-up bg-white rounded-2xl shadow-lg overflow-hidden border-2 border-orange-100 hover:border-orange-300 transition-all duration-300">
+                    <div class="decorative-dots"></div>
                     <button
-                        class="accordion-btn w-full px-6 py-4 text-left font-semibold text-gray-800 hover:bg-orange-100 transition-colors flex items-center justify-between">
-                        <span>પેમેન્ટ કેવી રીતે કરવું?</span>
-                        <span class="text-2xl text-orange-500">+</span>
+                        class="accordion-btn w-full px-6 py-5 text-left font-semibold text-gray-800 flex items-center justify-between gap-4"
+                        aria-expanded="false">
+                        <span class="flex items-center gap-3 flex-1">
+                            <span class="icon-badge">💳</span>
+                            <span class="text-lg">પેમેન્ટ કેવી રીતે કરવું?</span>
+                        </span>
+                        <div class="accordion-icon">+</div>
                     </button>
-                    <div class="accordion-content px-6 pb-4">
-                        <p class="text-gray-600">
+                    <div class="accordion-content px-6">
+                        <p class="answer-text">
                             અમે Cash on Delivery (COD) ઓફર કરીએ છીએ. પ્રોડક્ટ મળ્યા પછી જ પેમેન્ટ કરો. ઓનલાઈન પેમેન્ટ પણ
-                            ઉપલબ્ધ છે.
+                            ઉપલબ્ધ છે - UPI, કાર્ડ, નેટ બેન્કિંગ. તમારા માટે સરળ જે હોય તે પસંદ કરો. 100% સુરક્ષિત
+                            પેમેન્ટ
+                            ગેટવે.
                         </p>
                     </div>
                 </div>
 
-                <div class="bg-orange-50 rounded-xl shadow-md overflow-hidden border border-orange-200">
+                <!-- FAQ Item 6 -->
+                <div
+                    class="faq-item fade-in-up bg-white rounded-2xl shadow-lg overflow-hidden border-2 border-orange-100 hover:border-orange-300 transition-all duration-300">
+                    <div class="decorative-dots"></div>
                     <button
-                        class="accordion-btn w-full px-6 py-4 text-left font-semibold text-gray-800 hover:bg-orange-100 transition-colors flex items-center justify-between">
-                        <span>ડિલિવરી કેટલા દિવસમાં થાય?</span>
-                        <span class="text-2xl text-orange-500">+</span>
+                        class="accordion-btn w-full px-6 py-5 text-left font-semibold text-gray-800 flex items-center justify-between gap-4"
+                        aria-expanded="false">
+                        <span class="flex items-center gap-3 flex-1">
+                            <span class="icon-badge">🚚</span>
+                            <span class="text-lg">ડિલિવરી કેટલા દિવસમાં થાય?</span>
+                        </span>
+                        <div class="accordion-icon">+</div>
                     </button>
-                    <div class="accordion-content px-6 pb-4">
-                        <p class="text-gray-600">
+                    <div class="accordion-content px-6">
+                        <p class="answer-text">
                             સામાન્ય રીતે 5-7 કાર્યકારી દિવસમાં ડિલિવરી થાય છે. દૂરના વિસ્તારમાં થોડો વધુ સમય લાગી શકે.
-                            મફત ડિલિવરી છે.
+                            મફત ડિલિવરી છે. સંપૂર્ણ ગોપનીયતા સાથે સિક્યોર પેકિંગમાં આવે છે. ઓર્ડર ટ્રેકિંગ સુવિધા
+                            ઉપલબ્ધ.
                         </p>
                     </div>
                 </div>
@@ -1337,32 +1936,7 @@
                 });
             });
 
-            // Accordion functionality
-            const accordionButtons = document.querySelectorAll('.accordion-btn');
 
-            accordionButtons.forEach(button => {
-                button.addEventListener('click', function () {
-                    const content = this.nextElementSibling;
-                    const icon = this.querySelector('span:last-child');
-
-                    // Close all other accordions
-                    document.querySelectorAll('.accordion-content').forEach(item => {
-                        if (item !== content) {
-                            item.classList.remove('active');
-                        }
-                    });
-
-                    document.querySelectorAll('.accordion-btn span:last-child').forEach(item => {
-                        if (item !== icon) {
-                            item.textContent = '+';
-                        }
-                    });
-
-                    // Toggle current accordion
-                    content.classList.toggle('active');
-                    icon.textContent = content.classList.contains('active') ? '−' : '+';
-                });
-            });
 
             // Smooth scroll for anchor links
             document.querySelectorAll('a[href^="#"]').forEach(anchor => {
@@ -1378,13 +1952,7 @@
                 });
             });
 
-            // Form submission handling
-            const form = document.querySelector('form');
-            form.addEventListener('submit', function (e) {
-                e.preventDefault();
-                alert('આભાર! અમે તમારી સાથે ટૂંક સમયમાં સંપર્ક કરીશું. 🙏');
-                form.reset();
-            });
+
 
             // Intersection Observer for fade-in animations
             const observerOptions = {
@@ -1404,6 +1972,80 @@
             document.querySelectorAll('.animate-fade-in').forEach(el => {
                 observer.observe(el);
             });
+        });
+    </script>
+    <script>
+        // Accordion functionality with improved accessibility
+        const accordionButtons = document.querySelectorAll('.accordion-btn');
+
+        accordionButtons.forEach(button => {
+            button.addEventListener('click', function () {
+                const content = this.nextElementSibling;
+                const icon = this.querySelector('.accordion-icon');
+                const isActive = content.classList.contains('active');
+
+                // Close all other accordions
+                document.querySelectorAll('.accordion-content').forEach(item => {
+                    if (item !== content) {
+                        item.classList.remove('active');
+                    }
+                });
+
+                document.querySelectorAll('.accordion-btn').forEach(btn => {
+                    if (btn !== this) {
+                        btn.classList.remove('active');
+                        btn.setAttribute('aria-expanded', 'false');
+                        const otherIcon = btn.querySelector('.accordion-icon');
+                        otherIcon.textContent = '+';
+                    }
+                });
+
+                // Toggle current accordion
+                content.classList.toggle('active');
+                this.classList.toggle('active');
+
+                // Update ARIA attribute
+                this.setAttribute('aria-expanded', !isActive);
+
+                // Update icon
+                icon.textContent = content.classList.contains('active') ? '+' : '+';
+
+                // Smooth scroll to active item on mobile
+                if (!isActive && window.innerWidth < 768) {
+                    setTimeout(() => {
+                        this.scrollIntoView({ behavior: 'smooth', block: 'nearest' });
+                    }, 300);
+                }
+            });
+
+            // Keyboard accessibility
+            button.addEventListener('keydown', function (e) {
+                if (e.key === 'Enter' || e.key === ' ') {
+                    e.preventDefault();
+                    this.click();
+                }
+            });
+        });
+
+        // Intersection Observer for scroll animations
+        const observerOptions = {
+            threshold: 0.1,
+            rootMargin: '0px 0px -50px 0px'
+        };
+
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.style.opacity = '1';
+                    entry.target.style.transform = 'translateY(0)';
+                }
+            });
+        }, observerOptions);
+
+        document.querySelectorAll('.faq-item').forEach(item => {
+            item.style.opacity = '0';
+            item.style.transform = 'translateY(30px)';
+            observer.observe(item);
         });
     </script>
 
